@@ -63,7 +63,5 @@ void desencolarDeTColaJugadoresABB(TColaJugadoresABB &c) {
         }
      c->cantidad--;
         delete d; 
-
     }
-
 }
