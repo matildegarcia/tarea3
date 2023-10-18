@@ -1,45 +1,35 @@
 #include "../include/aplicaciones.h"
 
-#include "../include/conjuntoIds.h"  // Incluye el módulo conjuntoIds
+TPilaJugador menoresQueElResto(TJugadoresLDE lista) {
+    TPilaJugador resultado = crearTPilaJugador();
+ 
+    while (cantidadTJugadoresLDE(lista) >= 1) {
+        TJugador actual = obtenerInicioDeTJugadoresLDE(lista);
 
-// ...
-
-TPilaJugador menoresQueElResto(TJugadoresLDE lista)
-{
-
-
-
-
-
-
-
-
-
-
-
-    
-  return NULL;
+        if (cantidadEnTPilaJugador(resultado) < 1 || edadTJugador(cimaDeTPilaJugador(resultado)) < edadTJugador(actual)) {
+            apilarEnTPilaJugador(resultado, actual);
+        } else {
+            while (cantidadEnTPilaJugador(resultado) >= 1 && edadTJugador(cimaDeTPilaJugador(resultado)) > edadTJugador(actual)) {
+                desapilarDeTPilaJugador(resultado);
+            }
+            apilarEnTPilaJugador(resultado, actual);
+        }
+        eliminarInicioTJugadoresLDE(lista);
+    }
+    return resultado;
 }
 
-
-
-
-
-bool sumaPares(nat k, TConjuntoIds c) { //el k es el objetivo de la suma  
-
-    TConjuntoIds vistos = crearTConjuntoIds(cantMaxTConjuntoIds(c));
+bool sumaPares(nat k, TConjuntoIds c) { 
     for (nat i = 1; i <= cantMaxTConjuntoIds(c); i++) {
         if (perteneceTConjuntoIds(i, c)) {
-            nat restante = k - i;
+            nat res = k - i;
 
-            if (restante != i && perteneceTConjuntoIds(restante, c)) {
-                liberarTConjuntoIds(vistos);
+            if (res  > i && perteneceTConjuntoIds(restante, c)) {
                 return true;
             }
-            insertarTConjuntoIds(i, vistos);
         }
     }
-    liberarTConjuntoIds(vistos);
     return false;
 }
+
 
