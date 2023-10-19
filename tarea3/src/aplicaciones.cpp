@@ -24,7 +24,7 @@ bool sumaPares(nat k, TConjuntoIds c) {
         if (perteneceTConjuntoIds(i, c)) {
             nat res = k - i;
 
-            if (res  > i && perteneceTConjuntoIds(restante, c)) {
+            if (res  > i && perteneceTConjuntoIds(res, c)) {
                 return true;
             }
         }
