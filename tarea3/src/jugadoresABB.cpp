@@ -2,7 +2,6 @@
 #include "../include/colaJugadoresABB.h"
 #include "../include/pilaJugador.h"
 
-#include "../include/jugadoresABB.h"
 void auxLiberaNodo(TJugadoresABB nodo);
 void mayoresTJugadoresABBRecursivo(TJugadoresABB jugadoresABB, nat edad, TJugadoresABB &nuevosJugadoresABB);
 TPilaJugador invertirPila(TPilaJugador pila);
